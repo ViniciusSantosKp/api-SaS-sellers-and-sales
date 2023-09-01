@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\SaleController;
+use App\Http\Controllers\Api\SellerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post('/sellers', [SellerController::class, 'store']);
+Route::get('/sellers', [SellerController::class, 'show']);
+Route::post('/sales', [SaleController::class, 'store']);
+Route::get('/sales/{seller_id}', [SaleController::class, 'show']);
