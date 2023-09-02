@@ -14,7 +14,7 @@ as configurações do docker estão nos arquivos docker-compose.yml e Dockerfile
 
 - **[Instalar o Docker](https://docs.docker.com/get-docker/)**
 - **[Instalar Docker compose v2](https://docs.docker.com/compose/install/)**
-- **[Kool](https://kool.dev/)**
+- **[Instalar Kool.dev](https://kool.dev/docs/getting-started/installation)**
 
 
 ### Setup
