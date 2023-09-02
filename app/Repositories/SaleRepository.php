@@ -6,6 +6,7 @@ use App\Actions\CalculateSellerCommissionAction;
 use App\Http\Resources\SaleResource;
 use App\Models\Sale;
 use App\Models\Seller;
+use Carbon\Carbon;
 use Illuminate\Support\Arr;
 
 class SaleRepository
@@ -25,6 +26,15 @@ class SaleRepository
     public function getAll()
     {
         return SaleResource::collection(Sale::with('seller')->get());
+    }
+
+    public function getAllTodaySales()
+    {
+        $sales = Sale::query()
+            ->whereDate('created_at', Carbon::today())
+            ->get();
+
+        return SaleResource::collection($sales);
     }
 
     public function getAllBySellerId(Seller $seller)

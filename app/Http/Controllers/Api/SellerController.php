@@ -36,7 +36,7 @@ class SellerController extends Controller
             return $this->sellerRepository->getAll();
 
         } catch (\Exception $e) {
-            logger()->error('SellerController@store - error', [
+            logger()->error('SellerController@show - error', [
                 'message' => $e->getMessage(),
                 'code' => $e->getCode(),
             ]);

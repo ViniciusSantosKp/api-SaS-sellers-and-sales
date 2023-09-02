@@ -21,7 +21,7 @@ class SaleController extends Controller
             return $this->saleRepository->store($data);
 
         } catch (\Exception $e) {
-            logger()->error('SellerController@store - error', [
+            logger()->error('SaleController@store - error', [
                 'message' => $e->getMessage(),
                 'code' => $e->getCode(),
                 'payload' => $request->all(),
@@ -38,7 +38,7 @@ class SaleController extends Controller
             return $this->saleRepository->getAllBySellerId($seller_id);
 
         } catch (\Exception $e) {
-            logger()->error('SellerController@store - error', [
+            logger()->error('SaleController@showSalesBySellerId - error', [
                 'message' => $e->getMessage(),
                 'code' => $e->getCode(),
                 'payload' => $seller_id,
@@ -55,7 +55,7 @@ class SaleController extends Controller
             return $this->saleRepository->getAll();
 
         } catch (\Exception $e) {
-            logger()->error('SellerController@store - error', [
+            logger()->error('SaleController@show - error', [
                 'message' => $e->getMessage(),
                 'code' => $e->getCode(),
             ]);
