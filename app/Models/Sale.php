@@ -13,6 +13,8 @@ class Sale extends Model
 
     protected $table = 'sales';
 
+    const DEFAULT_COMMISSION = 0.085;
+
     protected $fillable = [
         'id',
         'seller_id',
