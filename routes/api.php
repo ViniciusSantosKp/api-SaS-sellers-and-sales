@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/seller/{seller_id}', [SellerController::class, 'showById']);
 Route::post('/sellers', [SellerController::class, 'store']);
 Route::get('/sellers', [SellerController::class, 'show']);
 Route::get('/sales/{seller_id}', [SaleController::class, 'showSalesBySellerId']);

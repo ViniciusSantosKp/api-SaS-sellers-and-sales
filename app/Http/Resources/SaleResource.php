@@ -19,7 +19,9 @@ class SaleResource extends JsonResource
             'name' => $this->seller->name,
             'email' => $this->seller->email,
             'commission' => $this->commission,
+            'commission_formatted' => number_format($this->commission, 2, ',', '.'),
             'value' => $this->value,
+            'value_formatted' => number_format($this->value, 2, ',', '.'),
             'sale_date' => $this->created_at->format('Y-m-d'),
         ];
     }

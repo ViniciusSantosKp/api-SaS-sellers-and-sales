@@ -31,6 +31,11 @@ class SellerRepository
         return SellerResource::collection($sellers);
     }
 
+    public function getSellerById(Seller $seller)
+    {
+        return new SellerResource($seller);
+    }
+
     public function update(Seller $seller, array $data)
     {
         $seller->update($data);

@@ -29,12 +29,23 @@ Em seguida rode os seguintes comandos no terminal (dentro do diretório do proje
 ```
 Para verificar os comandos disponíveis do Kool, acessar o arquivo Kool.yml
 
-Para consumir essa api, foi criado um outro projeto. Pararodar os dois localmente, é necessário rodar o seguinte comando no terminal (no diretório desse projeto)
+Para consumir essa api, foi criado um outro projeto. Para rodar os dois localmente, foi necessário a utilização de um serviço de tunnel (utilizei o Ngrok)
+
+- **[Instalar o Ngrok](https://ngrok.com/docs/getting-started/)**
+
+Depois de instalado e adicionado a chave de autenticação, rodar no terminal no diretório do projeto
 
 ```bash
-    kool run artisan serve --port=8989
+    ngrok http 8989
 ```
-acessar o localhost na porta 8989 que o serve utiliza.
+
+### OBS****
+Outra necessidade é alterar a url da api no arquivo app/Providers/ApiSellersAndSalesProvider na linha 16 no projeto da aplicação que fará o consumo dessa API
+
+```bash
+    -'base_uri' => 'https://localhost:8989',
+    +'base_uri' => 'https://url-fornecida-pelo-ngrok',
+```
 
 Para acessar as funcionalidades de fila, schedule e emails localmente, além de configurar alguma ferramenta de email à sua escolha (como por exemplo o mailtrap) os seguintes comandos serão necessários em terminais distintos:
 

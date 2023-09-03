@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreSellerRequest;
+use App\Models\Seller;
 use App\Repositories\SellerRepository;
 
 class SellerController extends Controller
@@ -42,6 +43,22 @@ class SellerController extends Controller
             ]);
 
             return response()->json(['error' => 'An error occurred while retrieving sellers.'], 500);
+        }
+    }
+
+    public function showById(Seller $seller_id)
+    {
+        try {
+            return $this->sellerRepository->getSellerById($seller_id);
+
+        } catch (\Exception $e) {
+            logger()->error('SellerController@showById - error', [
+                'message' => $e->getMessage(),
+                'code' => $e->getCode(),
+                'payload' => $seller_id,
+            ]);
+
+            return response()->json(['error' => 'An error occurred while retrieving seller.'], 500);
         }
     }
 }

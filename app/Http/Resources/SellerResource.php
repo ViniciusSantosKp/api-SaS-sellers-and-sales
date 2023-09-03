@@ -20,6 +20,7 @@ class SellerResource extends JsonResource
             'name' => $this->name,
             'email' => $this->email,
             'commission' => $this->sales->sum->commission,
+            'commission_formatted' => number_format($this->sales->sum->commission, 2, ',', '.'),
         ];
     }
 }
